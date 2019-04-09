@@ -1,13 +1,58 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+<!--首页-->
+<view wx:if="{{sessionRole.name == '学生'}}">
+  <view style="text-align:center;margin:20px 0;">请选择学生课程</view>
+  <view wx:for="{{academyList}}" wx:for-item="academy" wx:key="{{index}}">
+    <button
+    type="default"
+    id="{{academy.academyId}}"
+    size="{{defaultSize}}"
+    loading="{{loading}}"
+    plain="{{plain}}"
+    disabled="{{disabled}}"
+    bindtap="academySelect"
+    hover-class="other-button-hover"
+    >
+      {{academy.name}}
+    </button>
   </view>
 </view>
+
+<view wx:if="{{sessionRole.name == '教师'}}">
+  <view style="text-align:center;margin:20px 0;">请选择问题</view>
+  <view style="text-align:left;" wx:for="{{problemList}}" wx:for-item="problem" wx:key="{{index}}">
+    <button
+    style="text-align:left;padding-left:2rem;"
+    type="default"
+    id="{{problem.problemId}}"
+    size="{{defaultSize}}"
+    loading="{{loading}}"
+    plain="{{plain}}"
+    disabled="{{disabled}}"
+    bindtap="problemSelect"
+    hover-class="other-button-hover"
+    >
+      {{index}}, <text style="color:#333;">{{problem.title}}</text>
+    </button>
+  </view>
+</view>
+
+<!-- 固定栏-->
+<view class="mer-footer">
+    <view class ="mer-footer-div" style="width:33%;left:0;color:red;">
+        <navigator url="/pages/index/index" >
+          <text  class="nav-active" style="line-height:50px">首页</text>
+        </navigator>
+    </view>
+    <view class ="mer-footer-div" style="width:33%;left:33%">
+        <navigator url="/pages/datum/datum">
+          <text style="line-height:50px">资料</text>
+        </navigator>
+    </view>
+    <view class ="mer-footer-div" style="width:33%;left:66%">
+        <navigator url="/pages/user/user">
+          <text style="line-height:50px">我的</text>
+        </navigator>
+    </view>
+    
+</view>
+<!-- 固定栏 end-->

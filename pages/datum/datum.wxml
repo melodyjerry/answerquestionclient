@@ -1,0 +1,62 @@
+<!--资料-->
+<view>
+  <view style="margin:20px 0;" wx-if="{{sessionRole.name == '教师'}}">
+    <view style="height:50px;border-bottom:1px solid #ececec;padding-left:2rem;">
+            <text style="display: inline-block;line-height: 48px;height:100%;vertical-align:top">名称：</text>
+            <input type="text"  bindinput="titleInput" style="border:0 solid #ccc;height:100%;display: inline-block;" id="title" placeholder="上传资料名称"/>
+      </view>
+    <button
+      style="width:60%;margin:auto;"
+      type="primary"
+      size="{{defaultSize}}"
+      loading="{{loading}}"
+      plain="{{plain}}"
+      disabled="{{disabled}}"
+      bindtap="datumUpload"
+      hover-class="other-button-hover"
+      >
+        点击上传
+       
+      </button>
+  </view>
+
+  <view style="text-align:center;" wx:if="{{datumList.length<=0}}">暂无</view>
+  <view wx:for="{{datumList}}" wx:for-item="datum" wx:key="{{index}}">
+    <button
+    style="text-align:left;padding-left:2rem;"
+    type="default"
+    id="{{datum.datumId}}"
+    size="{{defaultSize}}"
+    loading="{{loading}}"
+    plain="{{plain}}"
+    disabled="{{disabled}}"
+    bindtap="datumSelect"
+    hover-class="other-button-hover"
+    >
+      {{datum.title}}
+       <text bindtap="datumDownload" style="float:right;margin-right:2rem;">下载</text>
+    </button>
+  </view>
+  
+</view>
+
+<!-- 固定栏-->
+<view class="mer-footer">
+    <view class ="mer-footer-div" style="width:33%;">
+        <navigator url="/pages/index/index" >
+          <text  style="line-height:50px">首页</text>
+        </navigator>
+    </view>
+    <view class ="mer-footer-div" style="width:33%;color:red;left:33%">
+        <navigator url="/pages/datum/datum">
+          <text class="nav-active"  style="line-height:50px">资料</text>
+        </navigator>
+    </view>
+    <view class ="mer-footer-div" style="width:33%;left:66%">
+        <navigator url="/pages/user/user">
+          <text style="line-height:50px">我的</text>
+        </navigator>
+    </view>
+    
+</view>
+<!-- 固定栏 end-->

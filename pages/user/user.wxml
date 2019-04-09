@@ -1,0 +1,36 @@
+<!--我的-->
+    <view style="padding:5%">
+        <view style="border-bottom:1px solid #ececec;padding:2%;">
+            <text>角色</text>
+            <text style="float: right">{{sessionRole.name}}</text>
+        </view>
+        <view style="border-bottom:1px solid #ececec;padding:2%;">
+            <text>账户</text>
+            <text style="float: right">{{sessionAccount.realname}}</text>
+        </view>
+  
+        <view  style="text-align: center;">
+            <text style="background-color: red;border:5px;height: 38px;display: inline-block;color:#fff;width:100%;line-height: 38px;" id="loginout" bindtap="loginout">退出登录</text>
+        </view>
+    </view>
+
+<!-- 固定栏-->
+<view class="mer-footer">
+    <view class ="mer-footer-div" style="width:33%;">
+        <navigator url="/pages/index/index">
+          <text   style="line-height:50px">首页</text>
+        </navigator>
+    </view>
+    <view class ="mer-footer-div" style="width:33%;left:33%">
+        <navigator url="/pages/datum/datum">
+          <text style="line-height:50px">资料</text>
+        </navigator>
+    </view>
+    <view class ="mer-footer-div" style="width:33%;left:0;color:red;left:66%" >
+        <navigator url="/pages/user/user" >
+          <text class="nav-active" style="line-height:50px">我的</text>
+        </navigator>
+    </view>
+    
+</view>
+<!-- 固定栏 end-->
