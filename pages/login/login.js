@@ -25,19 +25,21 @@ Page({
     console.log(this)
 
     if (!this.data.adminName||this.data.adminName.length<2) {
-      wx.showToast({
+      wx.showLoading({
         title: '请检查账户',
-        icon: 'warning',
-        duration: 1000
       })
+      setTimeout(function () {
+        wx.hideLoading()
+      }, 2000)
       return;
     }
     if (!this.data.password || this.data.password.length < 6 || this.data.password.length > 20) {
-      wx.showToast({
+      wx.showLoading({
         title: '请检查密码',
-        icon: 'warn',
-        duration: 1000
       })
+      setTimeout(function () {
+        wx.hideLoading()
+      }, 2000)
       return;
     }
 

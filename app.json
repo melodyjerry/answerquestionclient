@@ -3,6 +3,8 @@
     "pages/index/index",
     "pages/datum/datum",
     "pages/user/user",
+    "pages/problem/problem",
+    "pages/answer/answer",
     "pages/register/register",
     "pages/login/login",
     "pages/logs/logs"

@@ -17,17 +17,17 @@
 <!-- 固定栏-->
 <view class="mer-footer">
     <view class ="mer-footer-div" style="width:33%;">
-        <navigator url="/pages/index/index">
+        <navigator url="/pages/index/index" open-type='redirect'>
           <text   style="line-height:50px">首页</text>
         </navigator>
     </view>
     <view class ="mer-footer-div" style="width:33%;left:33%">
-        <navigator url="/pages/datum/datum">
+        <navigator url="/pages/datum/datum" open-type='redirect'>
           <text style="line-height:50px">资料</text>
         </navigator>
     </view>
     <view class ="mer-footer-div" style="width:33%;left:0;color:red;left:66%" >
-        <navigator url="/pages/user/user" >
+        <navigator url="/pages/user/user" open-type='redirect'>
           <text class="nav-active" style="line-height:50px">我的</text>
         </navigator>
     </view>

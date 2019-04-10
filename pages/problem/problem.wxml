@@ -1,0 +1,35 @@
+<!--问题-->
+<view style="text-align:center;" wx-if="{{sessionRole.name=='学生'}}">添加问题</view>
+  <view style="margin:20px 0;" wx-if="{{sessionRole.name=='学生'}}">
+    <view style="height:50px;border-bottom:1px solid #ececec;padding-left:2rem;">
+        <input type="text"  bindinput="titleInput" value="{{title}}" style="border:0 solid #ccc;height:100%;display: inline-block;" id="title" placeholder="问题标题"/>
+    </view>
+    <view style="height:50px;border-bottom:1px solid #ececec;padding-left:2rem;">
+      <textarea   bindinput="contentInput" value="{{content}}" style="border:0 solid #ccc;height:100%;display: inline-block;" id="title" placeholder="问题内容"/>
+    </view>
+    <button
+      style="width:60%;margin:auto;"
+      type="primary"
+      size="{{defaultSize}}"
+      loading="{{loading}}"
+      plain="{{plain}}"
+      disabled="{{disabled}}"
+      bindtap="problemSubmit"
+      hover-class="other-button-hover"
+      >
+        提交   
+      </button>
+  </view>
+
+  <view style="text-align:center;">问题列表</view>
+  <view style="text-align:center;" wx:if="{{problemList.length<=0}}">暂无</view>
+  <view wx:for="{{problemList}}" wx:for-item="problem" wx:key="{{index}}">
+    <view
+    data-id="{{problem.problemId}}"
+    style="text-align:left;padding:0.5rem;border:1px solid #ececec;width:100dp;"
+    bindtap="problemSelect"
+    >
+      <text style="font-size:0.6rem;width:100dp;display:block;word-break: keep-all;word-wrap: break-word;">标题：{{problem.title}}</text>
+      <text style="font-size:0.6rem;;display:block;word-break: keep-all;word-wrap: break-word;">内容：{{problem.content}}</text>
+    </view>
+  </view>

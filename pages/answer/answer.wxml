@@ -1,0 +1,35 @@
+<!--答案-->
+<view style="text-align:center;">添加答案</view>
+  <view style="margin:20px 0;">
+    <view style="height:50px;border-bottom:1px solid #ececec;padding-left:2rem;">
+        <input type="text"  bindinput="titleInput" value="{{title}}" style="border:0 solid #ccc;height:100%;display: inline-block;" id="title" placeholder="答案标题"/>
+    </view>
+    <view style="height:50px;border-bottom:1px solid #ececec;padding-left:2rem;">
+      <textarea   bindinput="contentInput" value="{{content}}" style="border:0 solid #ccc;height:100%;display: inline-block;" id="title" placeholder="答案内容"/>
+    </view>
+    <button
+      style="width:60%;margin:auto;"
+      type="primary"
+      size="{{defaultSize}}"
+      loading="{{loading}}"
+      plain="{{plain}}"
+      disabled="{{disabled}}"
+      bindtap="answerSubmit"
+      hover-class="other-button-hover"
+      >
+        提交   
+      </button>
+  </view>
+
+  <view style="text-align:center;">答案列表</view>
+  <view style="text-align:center;" wx:if="{{answerList.length<=0}}">暂无</view>
+  <view wx:for="{{answerList}}" wx:for-item="answer" wx:key="{{index}}">
+    <view
+    data-id="{{answer.answerId}}"
+    style="text-align:left;padding:0.5rem;border:1px solid #ececec;width:100dp;"
+    bindtap="answerSelect"
+    >
+      <text style="font-size:0.6rem;width:100%;display:block;word-break: keep-all;word-wrap: break-word;">标题：{{answer.title}}</text>
+      <text style="font-size:0.6rem;width:100%;display:inline-block;word-break: keep-all;word-wrap: break-word;">内容：{{answer.content}}</text>
+    </view>
+  </view>

@@ -11,7 +11,7 @@ Page({
     disabled: false,
     plain: false,
     loading: false,
-    academyList:[],
+    studentCourseList:[],
     problemList: [],
   },
   //事件处理函数
@@ -22,12 +22,13 @@ Page({
   },
   onLoad: function () {
     var _this=this;
-    //获取学院
-     function getAcademyList() {
+    //获取学生课程
+    function getStudentCourseList(accountId) {
       wx.request({
-        url: app.globalData.baseUrl + '/academy/list',
+        url: app.globalData.baseUrl + '/studentCourse/list',
         data: {
           pageSize: 9999,
+          accountId: accountId
         },
         // header: {
         //     'content-type': 'application/json'
@@ -36,7 +37,7 @@ Page({
           console.log(res.data)
           var data = res.data
           _this.setData({
-            academyList: data.data
+            studentCourseList: data.data
           })
 
         }
@@ -68,7 +69,8 @@ Page({
       key: 'account',
       success(res) {
         console.log(res.data)
-        getAcademyList()
+        var account=JSON.parse(res.data)
+        getStudentCourseList(account.accountId)
         getProblemList()
       },
       fail(res){
@@ -91,13 +93,18 @@ Page({
       }
     })  
   },
-  academySelect:function(item){
-    console.log(item.target.id)
+  studentCourseSelect:function(item){
+   // console.log(item)
+    wx.navigateTo({
+      url: '../problem/problem?studentCourseId=' + item.target.id
+    })
 
   },
   problemSelect: function (item) {
     console.log(item.target.id)
-
+    wx.navigateTo({
+      url: '../answer/answer?problemId=' + item.target.id
+    })
   }
  
 })

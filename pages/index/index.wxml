@@ -1,18 +1,18 @@
 <!--首页-->
 <view wx:if="{{sessionRole.name == '学生'}}">
   <view style="text-align:center;margin:20px 0;">请选择学生课程</view>
-  <view wx:for="{{academyList}}" wx:for-item="academy" wx:key="{{index}}">
+  <view wx:for="{{studentCourseList}}" wx:for-item="studentCourse" wx:key="{{index}}">
     <button
     type="default"
-    id="{{academy.academyId}}"
+    id="{{studentCourse.studentCourseId}}"
     size="{{defaultSize}}"
     loading="{{loading}}"
     plain="{{plain}}"
     disabled="{{disabled}}"
-    bindtap="academySelect"
+    bindtap="studentCourseSelect"
     hover-class="other-button-hover"
     >
-      {{academy.name}}
+      {{studentCourse.name}}
     </button>
   </view>
 </view>
@@ -39,17 +39,17 @@
 <!-- 固定栏-->
 <view class="mer-footer">
     <view class ="mer-footer-div" style="width:33%;left:0;color:red;">
-        <navigator url="/pages/index/index" >
+        <navigator url="/pages/index/index" open-type='redirect'>
           <text  class="nav-active" style="line-height:50px">首页</text>
         </navigator>
     </view>
     <view class ="mer-footer-div" style="width:33%;left:33%">
-        <navigator url="/pages/datum/datum">
+        <navigator url="/pages/datum/datum" open-type='redirect'>
           <text style="line-height:50px">资料</text>
         </navigator>
     </view>
     <view class ="mer-footer-div" style="width:33%;left:66%">
-        <navigator url="/pages/user/user">
+        <navigator url="/pages/user/user" open-type='redirect'>
           <text style="line-height:50px">我的</text>
         </navigator>
     </view>
