@@ -31,5 +31,7 @@
     >
       <text style="font-size:0.6rem;width:100%;display:block;word-break: keep-all;word-wrap: break-word;">标题：{{answer.title}}</text>
       <text style="font-size:0.6rem;width:100%;display:inline-block;word-break: keep-all;word-wrap: break-word;">内容：{{answer.content}}</text>
+      <button style="width:50px;" bindtap="problemSelectAnswer" data-id="{{answer.answerId}}" wx-if="{{!problem.answerId}}">采纳</button>
+      <text style="width:50px;color:red;" wx-if="{{problem.answerId==answer.answerId}}">已采纳</text>
     </view>
   </view>

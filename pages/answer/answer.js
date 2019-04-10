@@ -17,6 +17,7 @@ Page({
     title: '',
     content: '',
     problemId: null,
+    problem:null,
     getAnswerList: null,
   },
   titleInput: function (e) {
@@ -51,6 +52,28 @@ Page({
     _this.setData({
       problemId: problemId
     })
+
+    wx.request({
+      url: app.globalData.baseUrl + '/problem/load',
+      data: {
+        problemId: problemId,
+      },
+      // header: {
+      //     'content-type': 'application/json'
+      // },
+      success: function (res) {
+        console.log(res.data)
+        var data = res.data
+        if (data.code == 200) {
+          _this.setData({
+            problem: data.data[0]
+          })
+        } else {
+
+        }
+      }
+    });
+
     console.log(this.data.problemId)
     this.getAnswerList = function () {
       wx.request({
@@ -136,6 +159,29 @@ Page({
         }
 
 
+      }
+    });
+  },
+  //采纳
+  problemSelectAnswer:function(item){
+    var _this=this;
+    console.log(item.currentTarget.dataset.id)
+    wx.request({
+      url: app.globalData.baseUrl + '/problem/update',
+      data: {
+        problemId: _this.data.problemId,
+        answerId: item.currentTarget.dataset.id
+      },
+      success: function (res) {
+        console.log(res.data)
+        var data = res.data
+        if (data.code == 200) {
+          _this.setData({
+            problem: data.data[0]
+          })
+        } else {
+
+        }
       }
     });
   },
