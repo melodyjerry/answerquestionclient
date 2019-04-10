@@ -1,11 +1,11 @@
-<!--答案-->
-<view style="text-align:center;">添加答案</view>
+<!--回答-->
+<view style="text-align:center;">添加回答</view>
   <view style="margin:20px 0;">
     <view style="height:50px;border-bottom:1px solid #ececec;padding-left:2rem;">
-        <input type="text"  bindinput="titleInput" value="{{title}}" style="border:0 solid #ccc;height:100%;display: inline-block;" id="title" placeholder="答案标题"/>
+        <input type="text"  bindinput="titleInput" value="{{title}}" style="border:0 solid #ccc;height:100%;display: inline-block;" id="title" placeholder="回答标题"/>
     </view>
     <view style="height:50px;border-bottom:1px solid #ececec;padding-left:2rem;">
-      <textarea   bindinput="contentInput" value="{{content}}" style="border:0 solid #ccc;height:100%;display: inline-block;" id="title" placeholder="答案内容"/>
+      <textarea   bindinput="contentInput" value="{{content}}" style="border:0 solid #ccc;height:100%;display: inline-block;" id="title" placeholder="回答内容"/>
     </view>
     <button
       style="width:60%;margin:auto;"
@@ -21,7 +21,7 @@
       </button>
   </view>
 
-  <view style="text-align:center;">答案列表</view>
+  <view style="text-align:center;">回答列表</view>
   <view style="text-align:center;" wx:if="{{answerList.length<=0}}">暂无</view>
   <view wx:for="{{answerList}}" wx:for-item="answer" wx:key="{{index}}">
     <view

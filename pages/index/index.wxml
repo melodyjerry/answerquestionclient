@@ -1,6 +1,6 @@
 <!--首页-->
 <view wx:if="{{sessionRole.name == '学生'}}">
-  <view style="text-align:center;margin:20px 0;">请选择学生课程</view>
+  <view style="text-align:center;margin:20px 0;">请选择学生课程<button type="primary" style="width:80px;font-size:0.6rem;display:inline-block;" bindtap="otherSelect">其他人问题</button></view>
   <view wx:for="{{studentCourseList}}" wx:for-item="studentCourse" wx:key="{{index}}">
     <button
     type="default"

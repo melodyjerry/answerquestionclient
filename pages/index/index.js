@@ -70,8 +70,13 @@ Page({
       success(res) {
         console.log(res.data)
         var account=JSON.parse(res.data)
-        getStudentCourseList(account.accountId)
-        getProblemList()
+        if (account.role.name=='学生'){
+          getStudentCourseList(account.accountId)
+        }else{
+          getProblemList()
+        }
+       
+        
       },
       fail(res){
         wx.navigateTo({
@@ -104,6 +109,12 @@ Page({
     console.log(item.target.id)
     wx.navigateTo({
       url: '../answer/answer?problemId=' + item.target.id
+    })
+  },
+  otherSelect:function(){
+    //其他人
+    wx.navigateTo({
+      url: '../problem/problem'
     })
   }
  

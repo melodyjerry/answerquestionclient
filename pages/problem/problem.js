@@ -47,17 +47,26 @@ Page({
       }
     })  
     var _this=this;
-    var studentCourseId = options.studentCourseId
+    console.log(options)
+    var studentCourseId = null;
     _this.setData({
       studentCourseId: studentCourseId
     })
-    console.log(options.studentCourseId)
+    var data={}
+    if (studentCourseId){
+      studentCourseId = options.studentCourseId
+      _this.setData({
+        studentCourseId: studentCourseId
+      })
+      data={
+        studentCourseId: studentCourseId,
+        }
+    }
+    console.log(studentCourseId)
     this.getProblemList=function(){
       wx.request({
         url: app.globalData.baseUrl + '/problem/list',
-        data: {
-          studentCourseId: studentCourseId,
-        },
+        data: data,
         // header: {
         //     'content-type': 'application/json'
         // },
