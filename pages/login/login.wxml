@@ -1,18 +1,17 @@
-<!-- <view class="nav-wrap">
-        <text style="position:absolute;left:18px;top:0;cursor:pointer;" onclick="business.goback()">〈</text>
-        <text>
-          登录
-        </text>
-        <text style="cursor:pointer;position:absolute;right:8px;top:4px;color:#fff;background-color:#5a83f1;width:38px;height:30px;line-height: 30px;border-radius:3px;" onclick="business.goregister()">注册</text>
-    </view> -->
+<view class="nav-wrap">
+        <!-- <text style="position:absolute;left:18px;top:0;cursor:pointer;" onclick="business.goback()"></text> -->
+        <text style="color:#fff;">登录</text>
+        <navigator style="font-size:0.6rem;cursor:pointer;position:absolute;right:8px;top:4px;color:#fff;background-color:#5a83f1;width:68px;height:30px;line-height: 30px;border-radius:3px;" url="/pages/register/register?roleName=教师">教师注册</navigator>
+        <navigator style="font-size:0.6rem;cursor:pointer;position:absolute;right:88px;top:4px;color:#fff;background-color:green;width:68px;height:30px;line-height: 30px;border-radius:3px;" url="/pages/register/register?roleName=学生">学生注册</navigator>
+    </view>
     <view style="margin:0 0 100px 0;background-color:#fff;padding:50px 15px 0 15px;height:100%;">
         <view style="height:50px;border-bottom:1px solid #ececec;">
             <text style="display: inline-block;line-height: 48px;height:100%;vertical-align:top">账户：</text>
-            <input type="text" id="adminName" bindinput="adminNameLogin" style="border:0 solid #ccc;height:100%;display: inline-block;" placeholder="账户"/>
+            <input type="text" id="adminName" bindinput="adminNameInput" style="border:0 solid #ccc;height:100%;display: inline-block;" placeholder="账户"/>
         </view>
         <view style="height:50px;border-bottom:1px solid #ececec;">
             <text style="display: inline-block;line-height: 48px;height:100%;vertical-align:top">密码：</text>
-            <input type="password"  bindinput="passwordLogin" style="border:0 solid #ccc;height:100%;display: inline-block;" id="password" placeholder="6-20位密码"/>
+            <input type="password"  bindinput="passwordInput" style="border:0 solid #ccc;height:100%;display: inline-block;" id="password" placeholder="6-20位密码"/>
         </view>
        <!-- <view style="height:50px;border-bottom:1px solid #ececec;">
             <text style="display: inline-block;line-height: 48px;height:100%;vertical-align:top;">验证码：</text>

@@ -36,9 +36,12 @@ Page({
         success: function (res) {
           console.log(res.data)
           var data = res.data
-          _this.setData({
-            studentCourseList: data.data
-          })
+          if(data.code==200){
+            _this.setData({
+              studentCourseList: data.data
+            })
+          }
+          
 
         }
       });

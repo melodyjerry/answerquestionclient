@@ -1,40 +1,42 @@
 <view class="nav-wrap">
-    <text style="position:absolute;left:18px;top:0;" onclick="business.goback()">&gt;</text>
-    <text>
-          注册
-        </text>
-    <text style="position:absolute;right:8px;top:4px;color:#fff;background-color:#5a83f1;width:38px;height:30px;line-height: 30px;border-radius:3px;" onclick="business.gologin()">登录</text>
+    <!-- <text style="position:absolute;left:18px;top:0;" onclick="business.goback()">&gt;</text> -->
+    <text style="color:#fff;">注册</text>
+    <navigator style="font-size:0.6rem;position:absolute;right:8px;top:4px;color:#fff;background-color:#5a83f1;width:38px;height:30px;line-height: 30px;border-radius:3px;" url="/pages/login/login">登录</navigator>
 </view>
 <view style="margin:0 0 100px 0;background-color:#fff;padding:50px 15px 0 15px;height:100%;">
+    <!-- <view style="height:50px;border-bottom:1px solid #ececec;">
+        <text style="display: inline-block;line-height: 48px;height:100%;vertical-align:top;">账户：</text>
+        <input type="text" id="adminName" bindinput="adminNameInput" style="display: inline-block;border:0 solid #ccc;height:100%;" placeholder="账户"/>
+    </view> -->
     <view style="height:50px;border-bottom:1px solid #ececec;">
-        <text style="display: inline-block;line-height: 48px;height:100%;vertical-align:top;">手机号码：</text>
-        <input type="text" id="adminName" style="border:0 solid #ccc;height:100%;" placeholder="手机号码"/>
+        <text style="display: inline-block;line-height: 48px;height:100%;vertical-align:top;">姓名：</text>
+        <input type="text" id="realname" bindinput="realnameInput" style="display: inline-block;border:0 solid #ccc;height:100%;" placeholder="姓名"/>
     </view>
-    <view style="height:50px;border-bottom:1px solid #ececec;">
+    <!-- <view style="height:50px;border-bottom:1px solid #ececec;">
         <text style="display: inline-block;line-height: 48px;height:100%;vertical-align:top;">短信验证：</text>
         <input type="text" style="border:0 solid #ccc;display: inline-block;line-height: 48px;height:100%;width:46%;vertical-align:top;" id="validCode" placeholder="短信验证码"/>
         <button style="display: inline-block;height:100%;width:26%;line-height: 48px;background-color:#ac40ca;border:1px solid #ac40ca;color:#fff;" src="" id="getValidCode">
             发送验证码
         </button>
+    </view> -->
+    <view style="height:50px;border-bottom:1px solid #ececec;">
+        <text style="display: inline-block;line-height: 48px;height:100%;vertical-align:top">输入密码：</text>
+        <input type="password" bindinput="passwordInput" style="display: inline-block;border:0 solid #ccc;height:100%;" id="password" placeholder="6-20位密码"/>
     </view>
     <view style="height:50px;border-bottom:1px solid #ececec;">
-        <text style="display: inline-block;line-height: 48px;height:100%;">输入密码：</text>
-        <input type="password" style="border:0 solid #ccc;height:100%;" id="password" placeholder="6-20位密码"/>
+        <text style="display: inline-block;line-height: 48px;height:100%;vertical-align:top">确认密码：</text>
+        <input type="password" bindinput="password2Input" style="display: inline-block;border:0 solid #ccc;height:100%;" id="password2" placeholder="确保两次密码相同"/>
     </view>
-    <view style="height:50px;border-bottom:1px solid #ececec;">
-        <text style="display: inline-block;line-height: 48px;height:100%;">确认密码：</text>
-        <input type="password2" style="border:0 solid #ccc;height:100%;" id="password2" placeholder="确保两次密码相同"/>
-    </view>
-    <view style="height:50px;border-bottom:1px solid #ececec;">
+    <!-- <view style="height:50px;border-bottom:1px solid #ececec;">
         <text style="display: inline-block;line-height: 48px;height:100%;">&#12288;邀请码：</text>
         <input type="text" id="inviteCode" style="border:0 solid #ccc;height:100%;" placeholder="输入邀请码"/>
     </view>
     <view style="height:20px;margin-top:20px;text-align:center;">
         <input type="checkbox" checked="checked" style="border:0 solid #ccc;height:100%;vertical-align:top;"/>
         <a style="display: inline-block;line-height: 20px;height:100%;color:#000;" href="protocol.html">同意平台协议</a>
-    </view>
+    </view> -->
     <view style="margin:15px 0;text-align:center;">
-        <button id="registerSubmit" style="background-color:red;border:1px solid red;color:#fff;height:50px;width:60%;">提交注册</button>
+        <button id="registerSubmit" bindtap="registerSubmit" style="margin:auto;background-color:red;border:1px solid red;color:#fff;height:50px;width:60%;">提交注册</button>
     </view>
 
 </view>

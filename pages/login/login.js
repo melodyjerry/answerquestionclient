@@ -11,12 +11,12 @@ Page({
   var _this=this;
 
   },
-  adminNameLogin: function (e){
+  adminNameInput: function (e){
     this.setData({
       adminName: e.detail.value
     })
   },
-  passwordLogin: function (e) {
+  passwordInput: function (e) {
     this.setData({
       password: e.detail.value
     })
